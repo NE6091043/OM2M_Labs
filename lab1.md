@@ -1,7 +1,7 @@
 ```java
 //global variables
 public class lab1{
-    int num=0,count=0;
+    static int num=0,count=0;
 
 
 //main part
@@ -20,7 +20,7 @@ public static void Guessclick(){
     }
     if
 }
-private static void restart(){
+public static void restart(){
     num=math.random(1,100);
     count=0
     lab_info.setText = "Enter a number between 1 and 100"
@@ -30,7 +30,7 @@ private static void restart(){
 
 }
 
-private static void quit(){
+public static void quit(){
     close_application();
 
 }
