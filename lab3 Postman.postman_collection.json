@@ -1,0 +1,354 @@
+{
+	"info": {
+		"_postman_id": "f6c44236-d991-48c6-b20c-f51e56fd81dc",
+		"name": "lab3 Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "mn-cse",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8282/~/mn-cse",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8282",
+					"path": [
+						"~",
+						"mn-cse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MY_SENSOR Application",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml;ty=2",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<m2m:ae xmlns:m2m=\"http://www.onem2m.org/xml/protocols\" rn=\"ne6091043\" >\n    <api>app-sensor</api>\n    <lbl>Type/sensor Category/temperature Location/home</lbl>\n    <rr>false</rr>\n</m2m:ae>",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8282/~/mn-cse",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8282",
+					"path": [
+						"~",
+						"mn-cse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Method",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"type": "text",
+						"value": "admin:admin"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/xml;ty=2",
+						"disabled": true
+					},
+					{
+						"key": "X-M2M-NM",
+						"type": "text",
+						"value": "MY_SENSOR",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<om2m:ae xmlns:om2m=\"http://www.onem2m.org/xml/protocols\">\n<api>app-sensor</api>\n<lbl>Type/sensor Category/temperature Location/home</lbl>\n<rr>false</rr>\n</om2m:ae>",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/in-cse/CAE92381677",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"in-cse",
+						"CAE92381677"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DESCRIPTOR Container",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml;ty=3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<m2m:cnt xmlns:m2m=\"http://www.onem2m.org/xml/protocols\" rn=\"dsp123\">\n</m2m:cnt>",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8282/~/mn-cse/mn-name/ne6091043",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8282",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"ne6091043"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DESCRIPTOR contentInstance",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml;ty=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<m2m:cin xmlns:m2m=\"http://www.onem2m.org/xml/protocols\">\n    <cnf>application/xml</cnf>\n    <con>\n        &lt;obj&gt;\n            &lt;str name=&quot;type&quot; val=&quot;Temperature_Sensor&quot;/&gt;\n            &lt;str name=&quot;location&quot; val=&quot;Home&quot;/&gt;\n            &lt;str name=&quot;appId&quot; val=&quot;MY_SENSOR&quot;/&gt;\n            &lt;op name=&quot;getValue&quot; href=&quot;/in-cse/in-name/MY_SENSOR/DATA/la&quot; \n         in=&quot;obix:Nil&quot; out=&quot;obix:Nil&quot; is=&quot;retrieve&quot;/&gt;\n        &lt;/obj&gt;\n    </con>\n</m2m:cin>",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8282/~/mn-cse/mn-name/MY_SENSOR/DESCRIPTOR",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8282",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"MY_SENSOR",
+						"DESCRIPTOR"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Data Container",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml;ty=3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<m2m:cnt xmlns:m2m=\"http://www.onem2m.org/xml/protocols\" rn=\"DATA1\">\n</m2m:cnt>",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8282/~/mn-cse/mn-name/ne6091043",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8282",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"ne6091043"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DATA contentInstance",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml;ty=4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<m2m:cin xmlns:m2m=\"http://www.onem2m.org/xml/protocols\">\n    <cnf>message</cnf>\n    <con>\n      &lt;obj&gt;\n        &lt;str name=&quot;appId&quot; val=&quot;MY_SENSOR&quot;/&gt;\n        &lt;str name=&quot;category&quot; val=&quot;temperature &quot;/&gt;\n        &lt;int name=&quot;data&quot; val=&quot;27&quot;/&gt;\n        &lt;int name=&quot;unit&quot; val=&quot;celsius&quot;/&gt;\n      &lt;/obj&gt;\n    </con>\n</m2m:cin>",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8282/~/mn-cse/mn-name/MY_SENSOR/DATA",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8282",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"MY_SENSOR",
+						"DATA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "monitor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"type": "text",
+						"value": "admin:admin"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/xml;ty=23"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<m2m:sub xmlns:m2m=\"http://www.onem2m.org/xml/protocols\" rn=\"SUB_MY_SENSOR\">\n    <nu>http://localhost:1400/monitor</nu>\n    <nct>2</nct>\n</m2m:sub>",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8282/~/mn-cse/mn-name/ne6091043",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8282",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"ne6091043"
+					]
+				},
+				"description": "cd monitor =>\njava -jar monitor.jar =>\nsend data contentinstance"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
