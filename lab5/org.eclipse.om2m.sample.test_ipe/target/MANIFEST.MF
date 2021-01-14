@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.eclipse.om2m.sample.test_ipe
+Bundle-SymbolicName: org.eclipse.om2m.sample.test_ipe
+Bundle-Name: Test_ipe
+Bundle-Version: 1.0.0.20200831-1302
+Bundle-ManifestVersion: 2
+Bundle-Activator: org.eclipse.om2m.sample.test_ipe.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Import-Package: org.apache.commons.logging,org.eclipse.om2m.binding.se
+ rvice,org.eclipse.om2m.commons.constants,org.eclipse.om2m.commons.exc
+ eptions,org.eclipse.om2m.commons.obix,org.eclipse.om2m.commons.obix.i
+ o,org.eclipse.om2m.commons.resource,org.eclipse.om2m.core.service,org
+ .eclipse.om2m.interworking.service,org.osgi.framework,org.osgi.util.t
+ racker
+
